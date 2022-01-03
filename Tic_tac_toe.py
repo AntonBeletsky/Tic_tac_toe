@@ -1,40 +1,23 @@
-# Main class
-
 import os
-
-print("Welcome to Tic Tac Toe") 
-
-# план
-# создать класс игрок
-# создать игровое поле (матрицу и отрисовку) 
-# игровой цикл и класс гейм 
-# проверка на поебуда
-# ввод вівод 
-
-os.system("pause")
+from Game import *
 
 class TicTacToe(object):
-
-    # конструктор
     def __init__(self):
         """Constructor"""
         pass
 
-    # деструктор
     def __del__(self):
         """Destructor"""
         pass
 
-    def main():
+    def main(self):
         print("Welcome to Tic Tac Toe")
+        game1 = Game()
         os.system("pause")
         pass
-    
+
     pass
 
 
 MainGame = TicTacToe()
 MainGame.main()
-
-
-

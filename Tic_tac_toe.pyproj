@@ -25,6 +25,7 @@
     <Compile Include="ConsoleInputOutput.py" />
     <Compile Include="Game.py" />
     <Compile Include="HumanInput.py" />
+    <Compile Include="other.py" />
     <Compile Include="Player.py" />
     <Compile Include="Tic_tac_toe.py" />
   </ItemGroup>

@@ -1,8 +1,7 @@
-# Логика, матрица
+class Game(object):
 
-class my_class(object):
+    def __init__(self):
+        print("LOLKA")
+        pass
+
     pass
-
-
-
-
