@@ -26,7 +26,9 @@ class Game(object):
         pass
 
     def getValueYX(self, y, x):
-        return self.gmatrix[y, x]
+        cell = self.gmatrix[y, x]
+        return cell
+        pass
     
     def setValueYX(self, y, x, value):
         self.gmatrix[y, x] = value

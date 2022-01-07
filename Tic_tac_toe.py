@@ -6,6 +6,7 @@ from ConsoleInputOutput import ConsoleIO
 class TicTacToe(object):
     def __init__(self):
         """Constructor"""
+        self.game1 = Game()
         pass
 
     def __del__(self):
@@ -14,12 +15,16 @@ class TicTacToe(object):
 
     def main(self):
         print("Welcome to Tic Tac Toe")
-        game1 = Game()
+        self.game1 = Game()
+        game1 = self.game1
+        """
         print(game1.getMatrix())
 
-        game1.setValueYX(2,0,1)
+        y = 2
+        x = 0
+        game1.setValueYX(y, x, Cell.CROSS.value)
         print(game1.getMatrix())
-
+        """
         # os.system("pause")
         pass
 
@@ -27,14 +32,12 @@ class TicTacToe(object):
 
 
 MainGame = TicTacToe()
-MainGame.main()
 
-a = Cell.CROSS.value
-print ( a )
 
-print (ConsoleIO.t_cross )
-print (ConsoleIO.t_empty )
-print (ConsoleIO.t_zero )
+MainGame.game1.setValueYX(0, 0, 2)
+MainGame.game1.setValueYX(1, 1, 2)
+MainGame.game1.setValueYX(2, 2, 2)
+
 
 CIO = ConsoleIO()
-CIO.demo()
+CIO.demo(MainGame.game1)
