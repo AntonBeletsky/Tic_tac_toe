@@ -51,3 +51,11 @@ class Game(object):
 
 
     pass
+
+class Human(object):
+
+    pass
+
+class ArtificalIntelegence(object):
+
+    pass

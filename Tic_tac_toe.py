@@ -17,6 +17,12 @@ class TicTacToe(object):
         print("Welcome to Tic Tac Toe")
         self.game1 = Game()
         game1 = self.game1
+
+        while(game1.gameover != False):
+
+            game1.gameover = True
+
+            pass
         """
         print(game1.getMatrix())
 
@@ -41,3 +47,7 @@ MainGame.game1.setValueYX(2, 2, 2)
 
 CIO = ConsoleIO()
 CIO.demo(MainGame.game1)
+
+var = CIO.inputUserStep()
+
+pass

@@ -106,6 +106,30 @@ class ConsoleIO(object):
 
         pass
 
+    def inputUserStep(self):
+        print("Input Y, X for Cell (0 - 2), example: 1 1: ")
+
+        var = input("Enter 2 variables: ").split()
+
+        try:
+            var = list(map(int, var))
+        except ValueError:
+            return self.inputUserStep()
+            pass
+
+        y = var[0]
+        x = var[1]
+
+        print("y is:", y, " x is:", x)
+
+        correct_data = (y <= 2 and y >= 0) and (x <= 2 and x >= 0)
+
+        print ("coorect data: ", correct_data)
+
+        return var
+
+
+
     pass
 
 
