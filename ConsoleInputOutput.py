@@ -44,8 +44,10 @@ class ConsoleIO(object):
                         
         pass
 
-    def gmatrixToTextMatrix(self, game):
+    def gmatrixToTextMatrix(self, gmatrix):
         
+        # gmatrix = game.getMatrix()
+
         tx_matrix = numpy.array([ 
                         [[' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,]], 
                         [[' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,]], 
@@ -56,7 +58,8 @@ class ConsoleIO(object):
         while(y < 3):
             x = 0
             while(x < 3):
-                cell = game.getValueYX(y, x)
+                # cell = game.getValueYX(y, x)
+                cell = gmatrix[y,x]
                 t_cell = self.cells[cell]
                 tx_matrix[y, x] = t_cell
                 x = x + 1
@@ -100,7 +103,7 @@ class ConsoleIO(object):
             b'\xd0\x91\xd0\xb0\xd0\xb9\xd1\x82\xd1\x8b'.decode('utf-8')
         )
 
-        tx_matrix = self.gmatrixToTextMatrix(game1)
+        tx_matrix = self.gmatrixToTextMatrix(game1.getMatrix())
 
         self.printMatrix(tx_matrix)
 
@@ -111,6 +114,9 @@ class ConsoleIO(object):
 
         var = input("Enter 2 variables: ").split()
 
+        if ( len(var) != 2):
+            return self.inputUserStep()
+            
         try:
             var = list(map(int, var))
         except ValueError:
@@ -123,6 +129,9 @@ class ConsoleIO(object):
         print("y is:", y, " x is:", x)
 
         correct_data = (y <= 2 and y >= 0) and (x <= 2 and x >= 0)
+        
+        if(correct_data == False):
+            return self.inputUserStep()
 
         print ("coorect data: ", correct_data)
 

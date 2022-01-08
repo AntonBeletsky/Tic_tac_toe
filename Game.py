@@ -1,5 +1,6 @@
 import numpy
 from enum import Enum
+import random
 
 class Cell(Enum):
     EMPTY = 0
@@ -13,7 +14,16 @@ class Cell(Enum):
 """
 
 class Game(object):
+
+    human = Cell.CROSS
+    AI = Cell.ZERO
     
+    gmatrix = numpy.array([ 
+                        [0, 0, 0], 
+                        [0, 0, 0], 
+                        [0, 0, 0]
+                      ])
+
     def __init__(self):
         self.gmatrix = numpy.array([ 
                         [0, 0, 0], 
@@ -31,6 +41,12 @@ class Game(object):
         pass
     
     def setValueYX(self, y, x, value):
+        self.gmatrix[y, x] = value
+        pass
+
+    def setCellYX(self, cell, value):
+        y = cell[0]
+        x = cell[1]
         self.gmatrix[y, x] = value
         pass
 
@@ -57,5 +73,56 @@ class Human(object):
     pass
 
 class ArtificalIntelegence(object):
+
+    def __init__(self):
+        
+        pass
+
+    def getZeroArr(self, gmatrix):
+
+        ZeroArr = []
+        
+        y = 0
+        while(y < 3):
+            x = 0
+            while(x < 3):
+                cell_value = gmatrix[y, x]
+
+                if(cell_value == Cell.EMPTY.value):
+                    ZeroArr.append([y, x])
+                
+                x = x + 1
+                pass
+            y = y + 1
+            pass
+        
+        return ZeroArr
+        pass
+
+    # дл€ map добавить елемент вмасив
+    def addTempArr(self, cell):
+
+        pass
+
+
+    def getRandomFromArr(self, arr): 
+        al = len(arr)
+        index = random.randint(0, al)
+        return arr[index]
+        pass
+
+    # походить , ј» ходит в игре
+    # возвращает €чейку 
+    def makeStep(self, game1):
+
+        return self.randomStep(game1)
+        pass
+
+    def randomStep(self, game1):
+        arr = self.getZeroArr(game1.gmatrix)
+        random_cell = self.getRandomFromArr(arr)
+
+        return random_cell
+        pass
 
     pass

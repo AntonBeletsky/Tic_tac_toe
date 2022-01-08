@@ -3,7 +3,6 @@ class my_class(object):
         0
     pass
 
-new_func()
 
 
 

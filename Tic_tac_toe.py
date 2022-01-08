@@ -4,6 +4,7 @@ from ConsoleInputOutput import ConsoleIO
 
 
 class TicTacToe(object):
+
     def __init__(self):
         """Constructor"""
         self.game1 = Game()
@@ -48,6 +49,35 @@ MainGame.game1.setValueYX(2, 2, 2)
 CIO = ConsoleIO()
 CIO.demo(MainGame.game1)
 
+ai = ArtificalIntelegence()
+
+gmatrix = MainGame.game1.getMatrix()
+
+a = 2 + 2
+
+# !!!
+z_arr = ai.getZeroArr(gmatrix)
+
+#print("ZERO ARR: ")
+#print(z_arr)
+
+r_cell = ai.makeStep(MainGame.game1)
+
+
+
+
+MainGame.game1.setCellYX(r_cell, 1)
+
+print(r_cell)
+
+CIO.demo(MainGame.game1)
+
+print(r_cell)
+
+os.system("pause")
+
 var = CIO.inputUserStep()
+
+
 
 pass
