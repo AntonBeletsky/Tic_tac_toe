@@ -15,14 +15,15 @@ class Cell(Enum):
 
 class Game(object):
 
-    human = Cell.CROSS
-    AI = Cell.ZERO
-    
+    # human = 0
+    # ai = 0
+    """
     gmatrix = numpy.array([ 
                         [0, 0, 0], 
                         [0, 0, 0], 
                         [0, 0, 0]
                       ])
+                        """
 
     def __init__(self):
         self.gmatrix = numpy.array([ 
@@ -65,6 +66,12 @@ class Game(object):
         return result
         pass
 
+    def setPlayer(self, player):
+
+        self.human = player
+        self.ai = Cell.ZERO.value if player == Cell.CROSS.value else Cell.ZERO.value
+
+        pass
 
     pass
 
@@ -107,7 +114,7 @@ class ArtificalIntelegence(object):
 
     def getRandomFromArr(self, arr): 
         al = len(arr)
-        index = random.randint(0, al)
+        index = random.randint(0, al - 1)
         return arr[index]
         pass
 

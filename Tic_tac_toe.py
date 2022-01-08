@@ -19,20 +19,20 @@ class TicTacToe(object):
         self.game1 = Game()
         game1 = self.game1
 
+
+
         while(game1.gameover != False):
+
+            # print menu
+            # print name
+            # select x 0
+            # play 
+            # victory check
 
             game1.gameover = True
 
             pass
-        """
-        print(game1.getMatrix())
 
-        y = 2
-        x = 0
-        game1.setValueYX(y, x, Cell.CROSS.value)
-        print(game1.getMatrix())
-        """
-        # os.system("pause")
         pass
 
     pass
@@ -47,24 +47,23 @@ MainGame.game1.setValueYX(2, 2, 2)
 
 
 CIO = ConsoleIO()
+
+human = CIO.setPlayer()
+MainGame.game1.setPlayer(human)
+
+
+
 CIO.demo(MainGame.game1)
 
-ai = ArtificalIntelegence()
+ai = ArtificalIntelegence() # добавить переменну. нолик или кресик в конструктор
 
 gmatrix = MainGame.game1.getMatrix()
-
-a = 2 + 2
 
 # !!!
 z_arr = ai.getZeroArr(gmatrix)
 
-#print("ZERO ARR: ")
-#print(z_arr)
 
 r_cell = ai.makeStep(MainGame.game1)
-
-
-
 
 MainGame.game1.setCellYX(r_cell, 1)
 

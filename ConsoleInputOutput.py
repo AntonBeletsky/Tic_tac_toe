@@ -134,7 +134,25 @@ class ConsoleIO(object):
         print ("coorect data: ", correct_data)
 
         return var
+        pass
 
+    def printMenu(self):
+
+        pass
+
+    def setPlayer(self):
+
+        try:
+            player = int(input("SLECT CROSS 2, ZERO 1 \n"))
+        except ValueError:
+            return self.setPlayer()
+            pass
+
+        if((player == Cell.ZERO.value) or (player == Cell.CROSS.value)):
+            return player
+        else:
+            return self.setPlayer()
+        pass
 
 
     pass
