@@ -1,5 +1,3 @@
-﻿#отрисовка
-
 import os
 import numpy
 from Game import *
@@ -24,7 +22,7 @@ class ConsoleIO(object):
 
     tab = ' ' * 10
 
-    # порядок важен 0 1 2 
+    # 0 1 2
 
     """
     class Cell(Enum):

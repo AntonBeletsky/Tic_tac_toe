@@ -99,7 +99,7 @@ class ArtificalIntelegence(object):
         return ZeroArr
         pass
 
-    # для map добавить елемент вмасив
+    # РґР»СЏ map РґРѕР±Р°РІРёС‚СЊ РµР»РµРјРµРЅС‚ РІРјР°СЃРёРІ
     def addTempArr(self, cell):
 
         pass
@@ -111,8 +111,8 @@ class ArtificalIntelegence(object):
         return arr[index]
         pass
 
-    # походить , АИ ходит в игре
-    # возвращает ячейку 
+    # РїРѕС…РѕРґРёС‚СЊ , РђР С…РѕРґРёС‚ РІ РёРіСЂРµ
+    # РІРѕР·РІСЂР°С‰Р°РµС‚ СЏС‡РµР№РєСѓ 
     def makeStep(self, game1):
 
         return self.randomStep(game1)
