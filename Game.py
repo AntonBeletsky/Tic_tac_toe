@@ -70,7 +70,8 @@ class Game(object):
 
         self.human = player
         self.ai = Cell.ZERO.value if player == Cell.CROSS.value else Cell.ZERO.value
-
+        # return [self.ai, self.human]
+        return self.ai
         pass
 
     pass
@@ -81,8 +82,8 @@ class Human(object):
 
 class ArtificalIntelegence(object):
 
-    def __init__(self):
-        
+    def __init__(self, ai):
+        self.ai = ai
         pass
 
     def getZeroArr(self, gmatrix):
@@ -104,11 +105,6 @@ class ArtificalIntelegence(object):
             pass
         
         return ZeroArr
-        pass
-
-    # для map добавить елемент вмасив
-    def addTempArr(self, cell):
-
         pass
 
 

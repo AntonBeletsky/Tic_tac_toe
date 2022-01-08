@@ -48,22 +48,21 @@ MainGame.game1.setValueYX(2, 2, 2)
 
 CIO = ConsoleIO()
 
-human = CIO.setPlayer()
-MainGame.game1.setPlayer(human)
+human_cell = CIO.setPlayer()
+ai_cell = MainGame.game1.setPlayer(human_cell)
 
+AI = ArtificalIntelegence(MainGame.game1.ai) # добавить переменну. нолик или кресик в конструктор
 
 
 CIO.demo(MainGame.game1)
 
-ai = ArtificalIntelegence() # добавить переменну. нолик или кресик в конструктор
-
 gmatrix = MainGame.game1.getMatrix()
 
 # !!!
-z_arr = ai.getZeroArr(gmatrix)
+z_arr = AI.getZeroArr(gmatrix)
 
 
-r_cell = ai.makeStep(MainGame.game1)
+r_cell = AI.makeStep(MainGame.game1)
 
 MainGame.game1.setCellYX(r_cell, 1)
 
