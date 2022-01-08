@@ -72,6 +72,7 @@ class ConsoleIO(object):
 
     def printMatrix(self, tx_matrix):
 
+        print(' ')
         print('╔' + '═' * 3 + '╦'+ '═' * 3 + '╦'+ '═' * 3 + '╗') 
 
         print('║' + tx_matrix[0, 0, 0] + '║'+ tx_matrix[0, 1, 0] + '║'+ tx_matrix[0, 2, 0] + '║') 
@@ -107,10 +108,17 @@ class ConsoleIO(object):
 
         pass
 
-    def inputUserStep(self):
-        print("Input Y, X for Cell (0 - 2), example: 1 1: ")
+    def next_step(self, game1):
+        tx_matrix = self.gmatrixToTextMatrix(game1.getMatrix())
+        self.printMatrix(tx_matrix)
+        pass
 
-        var = input("Enter 2 variables: ").split()
+    def inputUserStep(self):
+
+        # print("Input Y, X for Cell (0 - 2), example: 1 1: ")
+        # var = input("Enter 2 variables: ").split()
+
+        var = input("Input Y, X (0 - 2): ").split()
 
         if ( len(var) != 2):
             return self.inputUserStep()
@@ -124,14 +132,14 @@ class ConsoleIO(object):
         y = var[0]
         x = var[1]
 
-        print("y is:", y, " x is:", x)
+        # print("y is:", y, " x is:", x)
 
         correct_data = (y <= 2 and y >= 0) and (x <= 2 and x >= 0)
         
         if(correct_data == False):
             return self.inputUserStep()
 
-        print ("coorect data: ", correct_data)
+        # print ("coorect data: ", correct_data)
 
         return var
         pass

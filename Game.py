@@ -1,3 +1,4 @@
+from os import P_OVERLAY
 import numpy
 from enum import Enum
 import random
@@ -17,13 +18,6 @@ class Game(object):
 
     # human = 0
     # ai = 0
-    """
-    gmatrix = numpy.array([ 
-                        [0, 0, 0], 
-                        [0, 0, 0], 
-                        [0, 0, 0]
-                      ])
-                        """
 
     def __init__(self):
         self.gmatrix = numpy.array([ 
@@ -32,7 +26,7 @@ class Game(object):
                         [0, 0, 0]
                       ])
 
-        # true - Game Overm false - play game
+        # true - Game Over false - play game
         self.gameover = False
         pass
 
@@ -42,35 +36,55 @@ class Game(object):
         pass
     
     def setValueYX(self, y, x, value):
-        self.gmatrix[y, x] = value
+        correct_data = (self.gmatrix[y, x] == Cell.EMPTY.value)
+        if(correct_data):
+            self.gmatrix[y, x] = value
+            
+        return correct_data
         pass
 
     def setCellYX(self, cell, value):
         y = cell[0]
         x = cell[1]
-        self.gmatrix[y, x] = value
+        return self.setValueYX(y, x, value)
+        #self.gmatrix[y, x] = value
         pass
 
     def getMatrix(self):
         return self.gmatrix
         pass
 
-    property
     def gameover(self):
         return self.gameover
         pass
 
     def victory_check(self):
         result = False
+        # 000 xxx
+
+        if(result):
+            self.gameover = True
 
         return result
         pass
 
-    def setPlayer(self, player):
+    def gameover_check(self):
+        # проверить есть ли пустые ячейки и есть ли победа
+        # получить массив пустых ячеек
+        pass
+
+    def setPlayers(self, player):
 
         self.human = player
-        self.ai = Cell.ZERO.value if player == Cell.CROSS.value else Cell.ZERO.value
-        # return [self.ai, self.human]
+        ai = 0
+
+        if(player == Cell.ZERO.value):
+            ai = Cell.CROSS.value
+            
+        if(player == Cell.CROSS.value):
+            ai = Cell.ZERO.value
+
+        self.ai = ai
         return self.ai
         pass
 
@@ -81,11 +95,12 @@ class Human(object):
     pass
 
 class ArtificalIntelegence(object):
-
+    
     def __init__(self, ai):
         self.ai = ai
         pass
 
+    # перенести в Game
     def getZeroArr(self, gmatrix):
 
         ZeroArr = []
@@ -109,8 +124,12 @@ class ArtificalIntelegence(object):
 
 
     def getRandomFromArr(self, arr): 
-        al = len(arr)
-        index = random.randint(0, al - 1)
+        al = len(arr) - 1
+
+        if(al < 1):
+            return False
+
+        index = random.randint(0, al)
         return arr[index]
         pass
 
