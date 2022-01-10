@@ -10,6 +10,7 @@ class ArtificalIntelegence(object):
         pass
 
     # перенести в Game
+    """
     def getZeroArr(self, gmatrix):
 
         ZeroArr = []
@@ -30,6 +31,7 @@ class ArtificalIntelegence(object):
         
         return ZeroArr
         pass
+    """
 
 
     def getRandomFromArr(self, arr): 
@@ -50,7 +52,9 @@ class ArtificalIntelegence(object):
         pass
 
     def randomStep(self, game1):
-        arr = self.getZeroArr(game1.gmatrix)
+        # arr = self.getZeroArr(game1.gmatrix)
+        arr = game1.getZeroArr()
+        # !!!
         random_cell = self.getRandomFromArr(arr)
 
         return random_cell

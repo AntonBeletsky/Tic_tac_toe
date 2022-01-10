@@ -8,7 +8,6 @@ from Cell import Cell
 """
 
 class Game(object):
-
     def __init__(self):
         self.gmatrix = numpy.array([ 
                         [0, 0, 0], 
@@ -51,6 +50,8 @@ class Game(object):
     def victory_check(self):
         result = False
         # 000 xxx
+        ## написать поиск побед
+        # 3 по вертикали, 3 по горизнтали , диагонали
 
         if(result):
             self.gameover = True
@@ -64,18 +65,39 @@ class Game(object):
         pass
 
     def setPlayers(self, player):
-
         self.human = player
-        ai_cell_value = 0
-
-        if(player == Cell.ZERO.value):
-            ai_cell_value = Cell.CROSS.value
-            
-        if(player == Cell.CROSS.value):
-            ai_cell_value = Cell.ZERO.value
-
-        self.ai = ai_cell_value
+        self.ai = self.inversePlayer(player)
         return self.ai
         pass
+
+    def inversePlayer(self, player1):
+        player2 = 0
+
+        if(player1 == Cell.ZERO.value):
+            player2 = Cell.CROSS.value
+            
+        if(player1 == Cell.CROSS.value):
+            player2 = Cell.ZERO.value
+
+        return player2
+        pass
+
+    def getZeroArr(self):
+        ZeroArr = []
+        y = 0
+        while(y < 3):
+            x = 0
+            while(x < 3):
+                cell_value = self.gmatrix[y, x]
+
+                if(cell_value == Cell.EMPTY.value):
+                    ZeroArr.append([y, x])
+                
+                x = x + 1
+                pass
+            y = y + 1
+            pass
+        
+        return ZeroArr
 
     pass
