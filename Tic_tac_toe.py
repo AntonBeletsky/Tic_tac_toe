@@ -2,6 +2,7 @@ import os
 from Game import Game
 from ConsoleInputOutput import ConsoleIO
 from ArtificialIntelligence import ArtificalIntelegence
+import numpy as np
 
 
 ## add https://all-python.ru/osnovy/tsvetnoj-vyvod-teksta.html

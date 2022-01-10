@@ -1,21 +1,21 @@
 import os
-import numpy
+import numpy as np
 from Game import Game
 from Cell import Cell
 
 class ConsoleIO(object):
 
-    t_empty = numpy.array([ 
+    t_empty = np.array([ 
                         '   ', 
                         '   ', 
                         '   ',
                       ])
-    t_cross = numpy.array([ 
+    t_cross = np.array([ 
                         '* *', 
                         ' * ', 
                         '* *',
                       ])
-    t_zero = numpy.array([ 
+    t_zero = np.array([ 
                         ' * ', 
                         '* *', 
                         ' * ',
@@ -28,7 +28,7 @@ class ConsoleIO(object):
     cells = [ t_empty, t_zero, t_cross ]
 
     def __init__(self):
-        self.tx_matrix = numpy.array([ 
+        self.tx_matrix = np.array([ 
                         [[' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,]], 
                         [[' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,]], 
                         [[' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,]] 
@@ -38,7 +38,7 @@ class ConsoleIO(object):
 
     def gmatrixToTextMatrix(self, gmatrix):
 
-        tx_matrix = numpy.array([ 
+        tx_matrix = np.array([ 
                         [[' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,]], 
                         [[' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,]], 
                         [[' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,]] 

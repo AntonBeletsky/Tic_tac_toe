@@ -1,4 +1,4 @@
-import numpy
+import numpy as np
 from Cell import Cell
 
 
@@ -9,11 +9,19 @@ from Cell import Cell
 
 class Game(object):
     def __init__(self):
-        self.gmatrix = numpy.array([ 
+        """
+        self.gmatrix = np.array([ 
                         [0, 0, 0], 
                         [0, 0, 0], 
                         [0, 0, 0]
                       ])
+                      """
+
+        # create matrix 3x3 # https://numpy.org/doc/stable/reference/generated/numpy.zeros.html
+        self.gmatrix = np.zeros((3, 3), int)
+                        
+        
+        # self.gmatrix = np.zeros((3, 3))
 
         # true - Game Over false - play game
         self.gameover = False
