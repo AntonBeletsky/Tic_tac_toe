@@ -35,7 +35,7 @@ class TicTacToe(object):
 
         while(self.game1.gameover == False):
 
-            # проверить есть ли пустые ячейки и есть ли победа !!!
+            # РїСЂРѕРІРµСЂРёС‚СЊ РµСЃС‚СЊ Р»Рё РїСѓСЃС‚С‹Рµ В¤С‡РµР№РєРё Рё РµСЃС‚СЊ Р»Рё РїРѕР±РµРґР° !!!
             self.game1.gameover_check()
             
             ## input human YX
@@ -45,7 +45,7 @@ class TicTacToe(object):
             # ai play 
             ai_step_cell = AI.makeStep(self.game1)
 
-            # закончились ячейки
+            # Р·Р°РєРѕРЅС‡РёР»РёСЃСЊ В¤С‡РµР№РєРё
             if(ai_step_cell == False):
                 self.game1.gameover = True
             else:

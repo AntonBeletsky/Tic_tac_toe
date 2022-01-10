@@ -21,8 +21,8 @@ class ArtificalIntelegence(object):
         return arr[index]
         pass
 
-    # походить , АИ ходит в игре
-    # возвращает ячейку 
+    # РїРѕС…РѕРґРёС‚СЊ , СВ» С…РѕРґРёС‚ РІ РёРіСЂРµ
+    # РІРѕР·РІСЂР°С‰Р°РµС‚ В¤С‡РµР№РєСѓ 
     def makeStep(self, game1):
 
         return self.randomStep(game1)
