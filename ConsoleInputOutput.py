@@ -1,7 +1,8 @@
 import os
 import numpy as np
 from Game import Game
-from Cell import Cell
+# from Cell import Cell
+from Cell import cell_dict as cd
 
 class ConsoleIO(object):
 
@@ -21,11 +22,9 @@ class ConsoleIO(object):
                         ' * ',
                       ])
 
-    tab = ' ' * 10
-
-    # 0 1 2
-
     cells = [ t_empty, t_zero, t_cross ]
+
+    tab = ' ' * 10
 
     def __init__(self):
         self.tx_matrix = np.array([ 
@@ -126,7 +125,7 @@ class ConsoleIO(object):
             return self.setPlayer()
             pass
 
-        if((player == Cell.ZERO.value) or (player == Cell.CROSS.value)):
+        if((player == cd['CROSS']) or (player == cd['ZERO'])):
             return player
         else:
             return self.setPlayer()

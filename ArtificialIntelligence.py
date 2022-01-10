@@ -1,7 +1,8 @@
 from Game import Game
 import numpy as np
 import random
-from Cell import Cell
+# from Cell import Cell
+from Cell import cell_dict as cd
 
 class ArtificalIntelegence(object):
     

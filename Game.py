@@ -1,5 +1,7 @@
 import numpy as np
-from Cell import Cell
+# from Cell import Cell
+from Cell import cell_dict as cd
+
 
 
 """
@@ -9,13 +11,6 @@ from Cell import Cell
 
 class Game(object):
     def __init__(self):
-        """
-        self.gmatrix = np.array([ 
-                        [0, 0, 0], 
-                        [0, 0, 0], 
-                        [0, 0, 0]
-                      ])
-                      """
 
         # create matrix 3x3 # https://numpy.org/doc/stable/reference/generated/numpy.zeros.html
         self.gmatrix = np.zeros((3, 3), int)
@@ -33,7 +28,7 @@ class Game(object):
         pass
     
     def setValueYX(self, y, x, value):
-        correct_data = (self.gmatrix[y, x] == Cell.EMPTY.value)
+        correct_data = (self.gmatrix[y, x] == cd['EMPTY'])
         if(correct_data):
             self.gmatrix[y, x] = value
             
@@ -44,7 +39,6 @@ class Game(object):
         y = cell[0]
         x = cell[1]
         return self.setValueYX(y, x, value)
-        #self.gmatrix[y, x] = value
         pass
 
     def getMatrix(self):
@@ -81,11 +75,11 @@ class Game(object):
     def inversePlayer(self, player1):
         player2 = 0
 
-        if(player1 == Cell.ZERO.value):
-            player2 = Cell.CROSS.value
+        if(player1 == cd['ZERO']):
+            player2 = cd['CROSS']
             
-        if(player1 == Cell.CROSS.value):
-            player2 = Cell.ZERO.value
+        if(player1 == cd['CROSS']):
+            player2 = cd['ZERO']
 
         return player2
         pass
@@ -98,7 +92,7 @@ class Game(object):
             while(x < 3):
                 cell_value = self.gmatrix[y, x]
 
-                if(cell_value == Cell.EMPTY.value):
+                if(cell_value == cd['EMPTY']):
                     ZeroArr.append([y, x])
                 
                 x = x + 1
