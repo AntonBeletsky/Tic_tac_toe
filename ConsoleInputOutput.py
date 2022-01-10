@@ -1,6 +1,7 @@
 import os
 import numpy
-from Game import *
+from Game import Game
+from Cell import Cell
 
 class ConsoleIO(object):
 
@@ -24,13 +25,6 @@ class ConsoleIO(object):
 
     # 0 1 2
 
-    """
-    class Cell(Enum):
-    EMPTY = 0
-    CROSS = 2
-    ZERO = 1
-    pass
-    """
     cells = [ t_empty, t_zero, t_cross ]
 
     def __init__(self):
@@ -43,8 +37,6 @@ class ConsoleIO(object):
         pass
 
     def gmatrixToTextMatrix(self, gmatrix):
-        
-        # gmatrix = game.getMatrix()
 
         tx_matrix = numpy.array([ 
                         [[' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,], [' ' * 3,' ' * 3,' ' * 3,]], 
@@ -56,7 +48,6 @@ class ConsoleIO(object):
         while(y < 3):
             x = 0
             while(x < 3):
-                # cell = game.getValueYX(y, x)
                 cell = gmatrix[y,x]
                 t_cell = self.cells[cell]
                 tx_matrix[y, x] = t_cell
@@ -67,8 +58,6 @@ class ConsoleIO(object):
 
         return tx_matrix        
         pass
-
-
 
     def printMatrix(self, tx_matrix):
 
@@ -96,18 +85,6 @@ class ConsoleIO(object):
 
         pass
 
-    def demo(self, game1):
-        # 
-        print( 
-            b'\xd0\x91\xd0\xb0\xd0\xb9\xd1\x82\xd1\x8b'.decode('utf-8')
-        )
-
-        tx_matrix = self.gmatrixToTextMatrix(game1.getMatrix())
-
-        self.printMatrix(tx_matrix)
-
-        pass
-
     def next_step(self, game1):
         tx_matrix = self.gmatrixToTextMatrix(game1.getMatrix())
         self.printMatrix(tx_matrix)
@@ -115,33 +92,26 @@ class ConsoleIO(object):
 
     def inputUserStep(self):
 
-        # print("Input Y, X for Cell (0 - 2), example: 1 1: ")
-        # var = input("Enter 2 variables: ").split()
+        inputYX = input("Input Y, X (0 - 2): ").split()
 
-        var = input("Input Y, X (0 - 2): ").split()
-
-        if ( len(var) != 2):
+        if ( len(inputYX) != 2):
             return self.inputUserStep()
             
         try:
-            var = list(map(int, var))
+            inputYX = list(map(int, inputYX))
         except ValueError:
             return self.inputUserStep()
             pass
 
-        y = var[0]
-        x = var[1]
-
-        # print("y is:", y, " x is:", x)
+        y = inputYX[0]
+        x = inputYX[1]
 
         correct_data = (y <= 2 and y >= 0) and (x <= 2 and x >= 0)
         
         if(correct_data == False):
             return self.inputUserStep()
 
-        # print ("coorect data: ", correct_data)
-
-        return var
+        return inputYX
         pass
 
     def printMenu(self):

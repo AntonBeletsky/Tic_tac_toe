@@ -1,6 +1,7 @@
-class my_class(object):
-    def new_func(seld):
-        0
+class Player(object):
+    def __init__(self):
+
+        pass
     pass
 
 
