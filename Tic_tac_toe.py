@@ -3,6 +3,8 @@ from Game import *
 from ConsoleInputOutput import ConsoleIO
 
 
+## add https://all-python.ru/osnovy/tsvetnoj-vyvod-teksta.html
+
 class TicTacToe(object):
 
     def __init__(self):
@@ -26,11 +28,13 @@ class TicTacToe(object):
 
         AI = ArtificalIntelegence(self.game1.ai) 
 
-        
+        # start matrix
+        self.CIO.next_step(self.game1)
+
         while(self.game1.gameover == False):
             
             # print matrix
-            self.CIO.next_step(self.game1)
+            # self.CIO.next_step(self.game1)
 
             # select x 0
             # human_arr_yx = self.CIO.inputUserStep()
@@ -55,7 +59,7 @@ class TicTacToe(object):
 
             self.game1.victory_check()
 
-            # break
+            self.CIO.next_step(self.game1)
             pass
 
         pass
