@@ -49,6 +49,11 @@ class Game(object):
         return self.gameover
         pass
 
+    # проверка победы заданого игрока
+    def victory_check(self, player):
+
+        pass
+
     def victory_check(self):
         result = False
         # res - 0 (next play), res 1 (ZERO WIN), res 2 (CROSS WIN )
@@ -60,6 +65,10 @@ class Game(object):
         # https://devpractice.ru/numpy-ndarray-slice/
 
         # self.gmatrix
+
+
+
+
 
         if(result):
             self.gameover = True
