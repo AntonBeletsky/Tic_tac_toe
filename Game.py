@@ -51,9 +51,15 @@ class Game(object):
 
     def victory_check(self):
         result = False
+        # res - 0 (next play), res 1 (ZERO WIN), res 2 (CROSS WIN )
         # 000 xxx
         ## написать поиск побед
         # 3 по вертикали, 3 по горизнтали , диагонали
+
+        # https://devpractice.ru/numpy-ndarray-slice/
+        # https://devpractice.ru/numpy-ndarray-slice/
+
+        # self.gmatrix
 
         if(result):
             self.gameover = True
