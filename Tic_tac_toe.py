@@ -62,7 +62,7 @@ class TicTacToe(object):
     pass
 
 #######################
-
+"""
 # map - посчитать совпадения 1 1 1
 # сумма совпадений 3 - победа
 
@@ -83,10 +83,15 @@ crosslr = list(map(lambda unla : 1 if (unla == val) else 0, arr)).count(1)
 
 # arr [1, 1, 1] - true
 
+# https://www.w3schools.com/python/python_lambda.asp
+
+
 # функция вернет true если все элементы массива arr совпадают с параметром cell_player
 def arr_check(arr, cell_player):
     return (len(arr) == list(map(lambda lamparam : cell_player if (lamparam == cell_player) else 0, arr)).count(cell_player))
     pass
+
+
 
 # victory_cross = (crosslr == 3)
 
@@ -101,9 +106,10 @@ print('list map result4:  ', arr_check([1,2,2], 2))
 print('list map result5:  ', arr_check([0,0,0], 2))
 
 a = input()
+"""
 
 ###############
-# MainGame = TicTacToe()
-# MainGame.main()
+MainGame = TicTacToe()
+MainGame.main()
 
 pass
