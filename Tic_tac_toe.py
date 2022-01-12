@@ -1,5 +1,5 @@
 import os
-from typing import List
+from typing import Counter, List
 from Game import Game
 from ConsoleInputOutput import ConsoleIO
 from ArtificialIntelligence import ArtificalIntelegence
@@ -60,6 +60,76 @@ class TicTacToe(object):
             pass
         pass
     pass
+
+
+
+# m = np.zeros((3, 3), int)
+# https://numpy.org/doc/stable/reference/generated/numpy.matrix.html
+
+# m = np.matrix('0 0 0; 0 0 0; 0 0 0')
+
+#print('matrix')
+#print(m)
+
+m = np.zeros((3, 3), int)
+
+
+m[0,0] = 1
+m[1,0] = 1
+m[2,0] = 1
+
+#print('arr')
+#print (m)
+
+y = 0
+print('y:')
+while(y < 3):
+    print( m[y, :] ) ## горизонталь 
+    y  += 1
+
+x = 0
+while(x < 3):
+    print('x')
+    print( m[:, x] ) ## вертикаль
+    x += 1
+
+# print ( np.zeros((1, 3), int)[0] )
+
+print( m[:, 0][1] )
+
+
+"""
+старт x старт y
+delta x, delta y
+
+0 0 1 1 2 2
+0 0
+1 1
+
+0 2 1 1 2 0
+0 2
+1 -1
+"""
+def diagonalMove(start_x, start_y, delta_x, delta_y, cell_player, matrix):
+    counter = 0
+    y = start_y
+    while(y < 3):
+        x = start_x
+        while(x < 3):
+            # проверка matrix cell_player
+            if(matrix[y,x] == cell_player):
+                counter += 1
+            x += delta_x
+            pass
+        y += delta_y
+        pass
+
+    return (counter == 3)
+    pass
+
+
+
+a = input()
 
 #######################
 """

@@ -14,9 +14,6 @@ class Game(object):
 
         # create matrix 3x3 # https://numpy.org/doc/stable/reference/generated/numpy.zeros.html
         self.gmatrix = np.zeros((3, 3), int)
-                        
-        
-        # self.gmatrix = np.zeros((3, 3))
 
         # true - Game Over false - play game
         self.gameover = False
@@ -49,8 +46,27 @@ class Game(object):
         return self.gameover
         pass
 
+    # функция вернет true если все элементы массива arr совпадают с параметром cell_player
+    def arr_check(arr, cell_player):
+        return (len(arr) == list(map(lambda lamparam : cell_player if (lamparam == cell_player) else 0, arr)).count(cell_player))
+    pass
+
     # проверка победы заданого игрока
     def victory_check(self, player):
+
+        victory = True
+
+        #horisontal
+
+        #vertical
+        y = 0
+        while(y < 3):
+            self.gmatrix[y]
+
+
+        #00 11 22
+
+        #20 11 02
 
         pass
 
@@ -110,9 +126,9 @@ class Game(object):
                 if(cell_value == cd['EMPTY']):
                     ZeroArr.append([y, x])
                 
-                x = x + 1
+                x += 1
                 pass
-            y = y + 1
+            y  += 1
             pass
         
         return ZeroArr

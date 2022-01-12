@@ -50,9 +50,9 @@ class ConsoleIO(object):
                 cell = gmatrix[y,x]
                 t_cell = self.cells[cell]
                 tx_matrix[y, x] = t_cell
-                x = x + 1
+                x += 1
                 pass
-            y = y + 1
+            y  += 1
             pass
 
         return tx_matrix        
