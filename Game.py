@@ -51,6 +51,44 @@ class Game(object):
         return (len(arr) == list(map(lambda lamparam : cell_player if (lamparam == cell_player) else 0, arr)).count(cell_player))
     pass
 
+
+    
+
+    def diagonal_check(self, start_x, start_y, delta_x, delta_y, cell_player, matrix):
+        counter = 0
+        y = start_y
+        while(y < 3):
+            x = start_x
+            while(x < 3):
+                # проверка matrix cell_player
+                if(matrix[y,x] == cell_player):
+                    counter += 1
+                x += delta_x
+                pass
+            y += delta_y
+            pass
+
+        return (counter == 3)
+    pass
+
+
+    def horisontal_vertical_check(self, cell_player, matrix):
+        i = 0
+        while(i < 3):
+            if(self.line_check( matrix[i, :], cell_player)):
+                return True
+            if(self.line_check( matrix[:, i], cell_player )):
+                return True
+            i += 1
+            pass
+        return False
+        pass
+
+    #arr3 [1, 2, 3] true false
+    def line_check(self, arr_line, cell_player):
+        return self.arr_check(arr_line, cell_player)
+        pass
+
     # проверка победы заданого игрока
     def victory_check(self, player):
 
@@ -63,7 +101,7 @@ class Game(object):
         while(y < 3):
             self.gmatrix[y]
 
-
+        #diagonals 
         #00 11 22
 
         #20 11 02
@@ -81,10 +119,6 @@ class Game(object):
         # https://devpractice.ru/numpy-ndarray-slice/
 
         # self.gmatrix
-
-
-
-
 
         if(result):
             self.gameover = True
