@@ -4,6 +4,7 @@ from Game import Game
 from ConsoleInputOutput import ConsoleIO
 from ArtificialIntelligence import ArtificalIntelegence
 import numpy as np
+from Cell import cell_value_to_name as ctvn
 
 
 ## add https://all-python.ru/osnovy/tsvetnoj-vyvod-teksta.html
@@ -33,11 +34,9 @@ class TicTacToe(object):
         # start matrix, first print 
         self.CIO.next_step(self.game1)
 
+        # играть пока не будет выполнено условие концаи игры
         while(self.game1.gameover == False):
 
-            # проверить есть ли пустые ¤чейки и есть ли победа !!!
-            self.game1.gameover_check()
-            
             ## input human YX
             while(self.game1.setCellYX(self.CIO.inputUserStep(), human_cell) == False):
                 pass
@@ -51,10 +50,11 @@ class TicTacToe(object):
             else:
                 self.game1.setCellYX(ai_step_cell, ai_cell)
             
-                
             # victory check
-            self.game1.victory_check()
-
+            if(self.game1.victory_checks()):
+                print(ctvn[self.game1.winner], " WIN!")
+                self.game1.gameover = True
+                
             self.CIO.next_step(self.game1)
             pass
         pass
@@ -66,9 +66,6 @@ class TicTacToe(object):
 # https://numpy.org/doc/stable/reference/generated/numpy.matrix.html
 
 # https://www.w3schools.com/python/python_lambda.asp
-
-
-
 
 
 MainGame = TicTacToe()

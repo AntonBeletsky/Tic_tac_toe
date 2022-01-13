@@ -10,7 +10,7 @@ class Cell(Enum):
 #cell_dict
 cell_dict  = { 'EMPTY': Cell.EMPTY.value, 
                'CROSS': Cell.CROSS.value, 
-               'ZERO': Cell.ZERO.value 
-               }
+               'ZERO': Cell.ZERO.value }
 
-# print(cd['CROSS'])
+cell_value_to_name = { Cell.CROSS.value: 'CROSS',
+                       Cell.ZERO.value: 'ZERP' }

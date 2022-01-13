@@ -1,6 +1,6 @@
 import numpy as np
 # from Cell import Cell
-from Cell import cell_dict as cd
+from Cell import Cell, cell_dict as cd
 
 
 
@@ -17,6 +17,8 @@ class Game(object):
 
         # true - Game Over false - play game
         self.gameover = False
+
+        self.winner = 0
         pass
 
     def getValueYX(self, y, x):
@@ -47,25 +49,26 @@ class Game(object):
         pass
 
     # функция вернет true если все элементы массива arr совпадают с параметром cell_player
-    def arr_check(arr, cell_player):
+    def arr_check(self, arr, cell_player):
         return (len(arr) == list(map(lambda lamparam : cell_player if (lamparam == cell_player) else 0, arr)).count(cell_player))
     pass
 
-
-    
-
-    def diagonal_check(self, start_x, start_y, delta_x, delta_y, cell_player, matrix):
+    def custum_line_check(self, start_y, start_x, delta_y, delta_x, cell_player, matrix):
         counter = 0
         y = start_y
-        while(y < 3):
+        wy = 0
+        while(wy < 3):
             x = start_x
-            while(x < 3):
+            wx = 0
+            while(wx < 3):
                 # проверка matrix cell_player
                 if(matrix[y,x] == cell_player):
                     counter += 1
                 x += delta_x
+                wx += 1
                 pass
             y += delta_y
+            wy += 1
             pass
 
         return (counter == 3)
@@ -90,40 +93,36 @@ class Game(object):
         pass
 
     # проверка победы заданого игрока
-    def victory_check(self, player):
+    def victory_check(self, cell_player):
 
-        victory = True
-
-        #horisontal
-
-        #vertical
-        y = 0
-        while(y < 3):
-            self.gmatrix[y]
+        #horisontal #vertical
+        if(self.horisontal_vertical_check(cell_player, self.gmatrix)):
+            return True;
 
         #diagonals 
-        #00 11 22
 
-        #20 11 02
+        #00 11 22 * 1 1
+        if(self.custum_line_check(0, 0, 1, 1, cell_player, self.gmatrix)):
+            return True;
 
+        #20 11 02 * -1 1
+        if(self.custum_line_check(2, 0, -1, 1, cell_player, self.gmatrix)):
+            return True;
+            
+        return False;
         pass
 
-    def victory_check(self):
-        result = False
-        # res - 0 (next play), res 1 (ZERO WIN), res 2 (CROSS WIN )
-        # 000 xxx
-        ## написать поиск побед
-        # 3 по вертикали, 3 по горизнтали , диагонали
+    def victory_checks(self):
+        
+        if(self.victory_check(cd['CROSS'])):
+            self.winner = cd['CROSS']
+            return True;
 
-        # https://devpractice.ru/numpy-ndarray-slice/
-        # https://devpractice.ru/numpy-ndarray-slice/
+        if(self.victory_check(cd['ZERO'])):
+            self.winner = cd['ZERO']
+            return True;
 
-        # self.gmatrix
-
-        if(result):
-            self.gameover = True
-
-        return result
+        return False
         pass
 
     def gameover_check(self):
